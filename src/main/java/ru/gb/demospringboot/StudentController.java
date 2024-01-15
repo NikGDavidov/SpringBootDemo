@@ -61,22 +61,5 @@ public class StudentController {
               ? new ResponseEntity<>(HttpStatus.OK)
               : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
-    //`меняем данные
-    @PutMapping("/student/{id}")
-    public Student updateStudent(@PathVariable long id, @RequestBody Student student) {
-        Student existsStudent = repository.getById(id);
-        if (existsStudent == null) { // 404
-            throw new IllegalArgumentException();
-        }
-
-        existsStudent.setName(student.getName());
-        return existsStudent;
-    }
-    @GetMapping(value = "/test", consumes = MediaType.IMAGE_JPEG_VALUE)
-    public String test() {
-        return """
-      <h1>Title</h1>
-      """;
-    }
-
+   
 }
