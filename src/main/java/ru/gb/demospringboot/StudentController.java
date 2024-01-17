@@ -46,14 +46,14 @@ public class StudentController {
     }
 
         // * 3.5 POST /student - создать студента (принимает JSON) (отладиться можно с помощью Postman)
-    @PostMapping("/newstudent")
+    @PostMapping("/student")
     public Student addStudent (@RequestBody Student student){
         repository.addStudent(student);
         List<Student> list = repository.getAll();
         return list.get(list.size()-1);
     }
     //* 3.6 DELETE /student/{id} - удалить студента
-    @DeleteMapping( "/erasure/{id}")
+    @DeleteMapping( "/student/{id}")
     public ResponseEntity<?> delete(@PathVariable long id) {
        final boolean deleted = repository.deleteStudent(id);
 
